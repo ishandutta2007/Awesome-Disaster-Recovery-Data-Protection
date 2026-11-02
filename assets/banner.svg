@@ -1,0 +1,212 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1d" />
+      <stop offset="50%" stop-color="#0e172a" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+
+    <linearGradient id="card-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.9" />
+    </linearGradient>
+
+    <linearGradient id="cyan-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+
+    <linearGradient id="emerald-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+
+    <linearGradient id="purple-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#ec4899" />
+    </linearGradient>
+
+    <linearGradient id="text-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#c084fc" />
+    </linearGradient>
+
+    <!-- Filters for high-tech neon glow -->
+    <filter id="glow-cyan" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="glow-emerald" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Grid Pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.75" stroke-opacity="0.6"/>
+      <circle cx="40" cy="40" r="1.5" fill="#334155" />
+    </pattern>
+
+    <style>
+      .title-text {
+        font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-weight: 800;
+        font-size: 42px;
+        letter-spacing: -0.5px;
+      }
+      .subtitle-text {
+        font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-weight: 500;
+        font-size: 19px;
+        fill: #94a3b8;
+      }
+      .badge-text {
+        font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-weight: 600;
+        font-size: 13px;
+        fill: #f8fafc;
+      }
+      .node-text {
+        font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-weight: 600;
+        font-size: 12px;
+        fill: #e2e8f0;
+      }
+      
+      /* Subtle animations */
+      @keyframes pulseOrb {
+        0%, 100% { transform: scale(1) translate(0, 0); opacity: 0.35; }
+        50% { transform: scale(1.15) translate(-20px, 15px); opacity: 0.55; }
+      }
+      @keyframes pulseGlow {
+        0%, 100% { opacity: 0.4; }
+        50% { opacity: 0.8; }
+      }
+      @keyframes floatNode {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-6px); }
+      }
+      @keyframes flowData {
+        0% { stroke-dashoffset: 40; }
+        100% { stroke-dashoffset: 0; }
+      }
+
+      .animated-orb-1 {
+        animation: pulseOrb 8s ease-in-out infinite alternate;
+        transform-origin: 200px 100px;
+      }
+      .animated-orb-2 {
+        animation: pulseOrb 10s ease-in-out infinite alternate-reverse;
+        transform-origin: 1000px 300px;
+      }
+      .data-stream {
+        stroke-dasharray: 6, 6;
+        animation: flowData 2s linear infinite;
+      }
+      .floating-card-1 {
+        animation: floatNode 6s ease-in-out infinite alternate;
+      }
+      .floating-card-2 {
+        animation: floatNode 7s ease-in-out infinite 1s alternate;
+      }
+      .floating-card-3 {
+        animation: floatNode 5s ease-in-out infinite 0.5s alternate;
+      }
+    </style>
+  </defs>
+
+  <!-- Background Layer -->
+  <rect width="1200" height="420" fill="url(#bg-grad)" />
+  <rect width="1200" height="420" fill="url(#grid)" />
+
+  <!-- Dynamic Glowing Background Orbs (Placed strictly in background) -->
+  <g opacity="0.4">
+    <circle class="animated-orb-1" cx="200" cy="100" r="180" fill="#0284c7" filter="url(#glow-cyan)" />
+    <circle class="animated-orb-2" cx="1020" cy="220" r="220" fill="#6366f1" filter="url(#glow-cyan)" />
+    <circle cx="600" cy="400" r="160" fill="#059669" filter="url(#glow-emerald)" opacity="0.25" />
+  </g>
+
+  <!-- Dynamic Cyber Mesh & Network Diagram Nodes (Visualizing Data Protection Architecture) -->
+  <g opacity="0.65" transform="translate(680, 50)">
+    <!-- Circuit Lines / Data Protection Stream -->
+    <path class="data-stream" d="M 50 150 L 150 150 L 220 90 L 340 90" fill="none" stroke="#38bdf8" stroke-width="2.5" />
+    <path class="data-stream" d="M 150 150 L 220 210 L 340 210" fill="none" stroke="#10b981" stroke-width="2.5" />
+    <path class="data-stream" d="M 340 90 L 420 150 L 470 150" fill="none" stroke="#818cf8" stroke-width="2.5" />
+    <path class="data-stream" d="M 340 210 L 420 150" fill="none" stroke="#818cf8" stroke-width="2.5" />
+
+    <!-- Node 1: Workload Source -->
+    <g class="floating-card-1" transform="translate(0, 120)">
+      <rect width="100" height="60" rx="10" fill="url(#card-grad)" stroke="#38bdf8" stroke-width="1.5" />
+      <text x="50" y="35" text-anchor="middle" class="node-text">⚡ Workload</text>
+    </g>
+
+    <!-- Node 2: Immutable Vault -->
+    <g class="floating-card-2" transform="translate(180, 55)">
+      <rect width="130" height="65" rx="10" fill="url(#card-grad)" stroke="#10b981" stroke-width="1.5" />
+      <text x="65" y="32" text-anchor="middle" class="node-text">🛡️ Cyber Vault</text>
+      <text x="65" y="49" text-anchor="middle" font-size="10" fill="#6ee7b7" font-family="system-ui">WORM / Air-Gap</text>
+    </g>
+
+    <!-- Node 3: DR Replication Target -->
+    <g class="floating-card-3" transform="translate(180, 185)">
+      <rect width="130" height="65" rx="10" fill="url(#card-grad)" stroke="#a855f7" stroke-width="1.5" />
+      <text x="65" y="32" text-anchor="middle" class="node-text">🔄 DR Standby</text>
+      <text x="65" y="49" text-anchor="middle" font-size="10" fill="#d8b4fe" font-family="system-ui">RPO &lt; 5s / CDP</text>
+    </g>
+
+    <!-- Node 4: Instant Recovery Engine -->
+    <g class="floating-card-1" transform="translate(370, 120)">
+      <rect width="115" height="60" rx="10" fill="url(#card-grad)" stroke="#f43f5e" stroke-width="1.5" />
+      <text x="57" y="35" text-anchor="middle" class="node-text">🚀 Recovery</text>
+    </g>
+  </g>
+
+  <!-- Decorative Border Accents -->
+  <line x1="60" y1="40" x2="160" y2="40" stroke="#0ea5e9" stroke-width="3" stroke-linecap="round" />
+  <line x1="60" y1="40" x2="60" y2="100" stroke="#0ea5e9" stroke-width="3" stroke-linecap="round" />
+
+  <!-- Hero Section Header (Foreground - Crystal Clear Readability) -->
+  <g transform="translate(70, 110)">
+    <!-- Pill Badge -->
+    <g transform="translate(0, 0)">
+      <rect width="320" height="32" rx="16" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+      <circle cx="16" cy="16" r="6" fill="#10b981" />
+      <circle cx="16" cy="16" r="10" fill="#10b981" opacity="0.3" class="data-stream" />
+      <text x="32" y="21" class="badge-text" fill="#38bdf8">ENTERPRISE RESILIENCE &amp; BCDR</text>
+    </g>
+
+    <!-- Main Title -->
+    <text x="0" y="80" class="title-text" fill="url(#text-grad)">Awesome Disaster Recovery</text>
+    <text x="0" y="130" class="title-text" fill="#ffffff">&amp; Data Protection</text>
+
+    <!-- Subtitle & Tagline -->
+    <text x="0" y="175" class="subtitle-text">
+      Curated Guide to Cyber Recovery, Immutable Vaults, Snapshot Orchestration &amp; BCDR Engines
+    </text>
+
+    <!-- Feature Tags Row -->
+    <g transform="translate(0, 215)">
+      <!-- Pill 1 -->
+      <rect x="0" y="0" width="160" height="34" rx="8" fill="#1e293b" stroke="#0284c7" stroke-width="1" />
+      <text x="80" y="22" text-anchor="middle" font-family="system-ui" font-size="13" font-weight="600" fill="#7dd3fc">🛡️ Ransomware Proof</text>
+
+      <!-- Pill 2 -->
+      <rect x="175" y="0" width="150" height="34" rx="8" fill="#1e293b" stroke="#059669" stroke-width="1" />
+      <text x="250" y="22" text-anchor="middle" font-family="system-ui" font-size="13" font-weight="600" fill="#6ee7b7">🔒 Immutable Vaults</text>
+
+      <!-- Pill 3 -->
+      <rect x="340" y="0" width="160" height="34" rx="8" fill="#1e293b" stroke="#7c3aed" stroke-width="1" />
+      <text x="420" y="22" text-anchor="middle" font-family="system-ui" font-size="13" font-weight="600" fill="#c4b5fd">⚡ Near-Zero RTO/RPO</text>
+
+      <!-- Pill 4 -->
+      <rect x="515" y="0" width="160" height="34" rx="8" fill="#1e293b" stroke="#db2777" stroke-width="1" />
+      <text x="595" y="22" text-anchor="middle" font-family="system-ui" font-size="13" font-weight="600" fill="#f472b6">🌐 Multi-Cloud &amp; K8s</text>
+    </g>
+  </g>
+
+  <!-- Bottom Accent Line -->
+  <line x1="0" y1="416" x2="1200" y2="416" stroke="url(#text-grad)" stroke-width="4" />
+</svg>
